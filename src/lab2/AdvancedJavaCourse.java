@@ -8,7 +8,7 @@ import javax.swing.*;
  * @author your name goes here
  * @version 1.00
  */
-public class AdvancedJavaCourse {
+public class AdvancedJavaCourse implements Course {
 
     private String courseName;
     private String courseNumber;
@@ -25,7 +25,7 @@ public class AdvancedJavaCourse {
     }
 
     public final void setCourseName(String courseName) {
-        if (courseName == null || courseName.length() == 0) {
+        if (courseName == null || courseName.isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "Error: courseName cannot be null of empty string");
             System.exit(0);
@@ -38,7 +38,7 @@ public class AdvancedJavaCourse {
     }
 
     public final void setCourseNumber(String courseNumber) {
-        if (courseNumber == null || courseNumber.length() == 0) {
+        if (courseNumber == null || courseNumber.isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "Error: courseNumber cannot be null of empty string");
             System.exit(0);
@@ -64,7 +64,7 @@ public class AdvancedJavaCourse {
     }
 
     public void setPrerequisites(String prerequisites) {
-        if (prerequisites == null || prerequisites.length() == 0) {
+        if (prerequisites == null || prerequisites.isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "Error: prerequisites cannot be null of empty string");
             System.exit(0);
@@ -72,4 +72,13 @@ public class AdvancedJavaCourse {
         this.prerequisites = prerequisites;
     }
 
+    @Override
+    public String toString() {
+        return "AdvancedJavaCourse{" +
+                "courseName='" + courseName + '\'' +
+                ", courseNumber='" + courseNumber + '\'' +
+                ", credits=" + credits +
+                ", prerequisites='" + prerequisites + '\'' +
+                '}';
+    }
 }

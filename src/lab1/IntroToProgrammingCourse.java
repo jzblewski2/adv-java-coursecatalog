@@ -9,23 +9,17 @@ import javax.swing.*;
  * @author your name goes here
  * @version 1.00
  */
-public class IntroToProgrammingCourse {
+public class IntroToProgrammingCourse extends Course {
 
-    String courseNumber;
-    private String courseName;
-    private double credits;
 
     public IntroToProgrammingCourse(String courseName, String courseNumber) {
         this.setCourseName(courseName);
         this.setCourseNumber(courseNumber);
     }
 
-    public String getCourseName() {
-        return courseName;
-    }
-
+    @Override
     public final void setCourseName(String courseName) {
-        if (courseName == null || courseName.length() == 0) {
+        if (courseName == null || courseName.isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "Error: courseName cannot be null of empty string");
             System.exit(0);
@@ -33,12 +27,9 @@ public class IntroToProgrammingCourse {
         this.courseName = courseName;
     }
 
-    public String getCourseNumber() {
-        return courseNumber;
-    }
-
+    @Override
     public final void setCourseNumber(String courseNumber) {
-        if (courseNumber == null || courseNumber.length() == 0) {
+        if (courseNumber == null || courseNumber.isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "Error: courseNumber cannot be null of empty string");
             System.exit(0);
@@ -46,10 +37,7 @@ public class IntroToProgrammingCourse {
         this.courseNumber = courseNumber;
     }
 
-    public double getCredits() {
-        return credits;
-    }
-
+    @Override
     public void setCredits(double credits) {
         if (credits < 0.5 || credits > 4.0) {
             JOptionPane.showMessageDialog(null,
@@ -59,4 +47,12 @@ public class IntroToProgrammingCourse {
         this.credits = credits;
     }
 
+    @Override
+    public String toString() {
+        return "IntroToProgrammingCourse{" +
+                "courseName='" + courseName + '\'' +
+                ", courseNumber='" + courseNumber + '\'' +
+                ", credits=" + credits +
+                '}';
+    }
 }
